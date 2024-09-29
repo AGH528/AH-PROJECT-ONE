@@ -1,0 +1,77 @@
+body {
+    background-color: burlywood;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+#turn-indicator {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tile {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: white;
+}
+
+.correct {
+    background-color: green;
+    color: white;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 30px);
+    grid-gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.key {
+    padding: 10px;
+    border: 1px solid #000;
+    cursor: pointer;
+    background-color: white;
+}
+
+#enter-btn, #reset-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: red;
+
+}
+
+#word-selection {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#word-select {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+

@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const wordList = ["HORSE", "LEMON", "GRAPE", "PEACH", "MANGO"]; 
+// Word List
+    const wordList = ["APPLE", "LEMON", "GRAPE", "PEACH", "MANGO"]; 
     let solution = wordList[Math.floor(Math.random() * wordList.length)].toUpperCase(); 
     let currentGuess = "";
     const tilesPerRow = 5;
@@ -17,14 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let isGameOver = false;
     let hintUsed = false;
 
-
+// Game Board
     for (let i = 0; i < tilesPerRow; i++) {
         const tile = document.createElement("div");
         tile.classList.add("tile");
         board.appendChild(tile);
         tiles.push(tile);
     }
-
+// Keyboard
     const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     letters.forEach((letter) => {
         const key = document.createElement("div");
@@ -34,11 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         keyboard.appendChild(key);
     });
 
+// Turn Indicator 
     function updateTurnIndicator() {
         const playerText = currentPlayer === 1 ? "PLAYER ONE GO" : "PLAYER TWO GO";
         turnIndicator.textContent = playerText;
     }
 
+// Letter Click Change
     function handleKeyClick(letter) {
         if (isGameOver) return;
 
@@ -48,12 +51,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+// Update board tiles w/ current guess 
     function updateTiles() {
         tiles.forEach((tile, index) => {
             tile.textContent = currentGuess[index] || "";
         });
     }
 
+ // Enter button click   
     enterBtn.addEventListener("click", () => {
         if (currentGuess.length === tilesPerRow) {
             checkGuess();
@@ -62,11 +67,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+ // Check if word correct   
     function checkGuess() {
         message.textContent = ""; 
         const guessArray = currentGuess.split("");
         const solutionArray = solution.split("");
-
+// Update tile
         guessArray.forEach((letter, index) => {
             const tile = tiles[index];
             
@@ -78,11 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error("Tile not found for index:", index);
             }
         });
-
+// Check is guess is correct
         if (currentGuess === solution) {
             showMessage(`Player ${currentPlayer} wins!`);
             isGameOver = true;
-
+// Confetti
             confetti({
                 particleCount: 150,
                 spread: 70,
@@ -108,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
             revealHint();
         }
     });
-
+// Show hint letter
     function revealHint() {
         const solutionArray = solution.split("");
         const emptyIndexes = tiles
@@ -127,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-
+// Resets game
     resetBtn.addEventListener("click", () => {
         currentGuess = "";
         isGameOver = false;
@@ -139,8 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
             tile.classList.remove("correct");
         });
         message.textContent = "";
-        updateTurnIndicator();
+        updateTurnIndicator(); 
     });
 
+// Initialize the Game
     updateTurnIndicator(); 
 });

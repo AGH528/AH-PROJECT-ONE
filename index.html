@@ -8,9 +8,24 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script> <!-- Confetti Library -->
 </head>
 <body>
-    <h1>WORDLE GAME</h1>
+    <h1>WoRDLE GaME</h1>
 
-    <div id="turn-indicator">PLAYER ONE GO</div>
+    <div id="instructions">
+        <h2>How to Play:</h2>
+        <p>Welcome to the WoRDLE GaME!</p>
+        <ul>
+            <li>*INSTRUCTIONS*</li>
+            <li>This is a Two-Player game where each player takes turns guessing a FRUIT that has 5-letters.</li>
+            <li>Player 1 starts the game and guesses by clicking letters on the keyboard.</li>
+            <li>Once Player 1 enters a word, Player 2 takes their turn.</li>
+            <li>HINT: The game will show which letters are correct by highlighting them in green.</li>
+            <li>The first player to guess the word correctly wins!</li>
+            <li>By click the "Reset" button to restart the game with a new word.</li>
+            <li>If you're stuck, use the "Hint" button (but only once per game).</li>
+        </ul>
+    </div>
+
+    <div id="turn-indicator">PLAYER ONE GO (X)</div>
     <div id="board"></div>
     <div id="keyboard"></div>
     <button id="enter-btn">Enter</button>
